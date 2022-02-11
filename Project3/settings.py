@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Project3.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_playgrounddb',
+        'NAME': 'wayfarer',
     }
 }
 
