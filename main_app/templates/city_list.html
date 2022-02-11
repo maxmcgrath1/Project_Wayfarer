@@ -8,5 +8,12 @@
     </head>
     <body>
         <h1>Look at all of these cool cities.</h1>
+
+        {% for city in cities %}
+        <div>
+            <img src="{{city.image}}" alt="{{city.name}}" />
+        </div>
+        <p>{{city.name}}</p> 
+        {% endfor %}
     </body>
 </html>
