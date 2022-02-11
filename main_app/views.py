@@ -14,5 +14,5 @@ class CityList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["artists"] = City.objects.all()
+        context["cities"] = City.objects.all()
         return context
