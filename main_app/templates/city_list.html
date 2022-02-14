@@ -18,12 +18,16 @@ Cities
     </div>
     <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
 </form>
+<div class="cities-container">
 {% for city in cities %}
+<div class="container-city">
 <a href="{% url 'city_detail' city.pk %}">
-    <img src="{{city.image}}" alt="{{city.name}}" />
+    <img src="{{city.image}}" alt="{{city.name}}" class="city-image" />
     <h2>{{city.name}}</h2> 
 </a>
     <h3>Population: {{city.population}}</h3>
     <h3>Main Attractions: {{city.attractions}}</h3>
+</div>
     {% endfor %}
+</div>
 {% endblock%}
