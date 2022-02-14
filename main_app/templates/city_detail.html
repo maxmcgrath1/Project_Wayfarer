@@ -11,6 +11,33 @@
     <p>Population: {{city.population}}</p>
     <p>Main Attractions: {{city.attractions}}</p>
 </div>
+<form class="mb-5" action="{% url 'post_create' city.pk %}" method="post">
+    {% csrf_token %}
+    <div class="field has-addons">
+        <div class="control">
+            <input
+                class="input"
+                type="text"
+                name="title"
+                placeholder="Title"
+                required
+            />
+        </div>
+        <div class="control">
+            <input
+                class="input"
+                type="text"
+                name="body"
+                placeholder="Your comment here"
+                min="1"
+                required
+            />
+        </div>
+        <div class="control">
+            <input class="button is-primary" type="submit" value="Add Comment" />
+        </div>
+    </div>
+</form>
 <div>
     <h3>Comments</h3>
     <div>
