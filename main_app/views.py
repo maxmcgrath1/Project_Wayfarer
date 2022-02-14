@@ -1,5 +1,5 @@
 from re import template
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from django.http import HttpResponse
@@ -7,6 +7,11 @@ from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import City
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -50,3 +55,19 @@ class CityDelete(DeleteView):
     model = City
     template_name = "city_delete_confirmation.html"
     success_url = "/cities/"
+
+class Signup(View):
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("city_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
