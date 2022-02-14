@@ -12,6 +12,7 @@
     <p>Main Attractions: {{city.attractions}}</p>
 </div>
 <div>
-    <a href="{% url 'city_update' city.pk %}" class="button is-info"> Update
+    <a href="{% url 'city_update' city.pk %}" class="button"> Update
+    <a href="{% url 'city_delete' city.pk %}" class="button"> Delete
 </div>
 {% endblock %}
