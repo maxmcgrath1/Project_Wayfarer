@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView
 from .models import City
 
 class Home(TemplateView):
@@ -16,3 +17,9 @@ class CityList(TemplateView):
         context = super().get_context_data(**kwargs)
         context["cities"] = City.objects.all()
         return context
+
+class CityCreate(CreateView):
+    model = City
+    fields = ['name', 'image', 'population', 'attractions']
+    template_name = "city_create.html"
+    success_url = "/cities/"
