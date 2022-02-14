@@ -2,6 +2,7 @@ from re import template
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
+from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from .models import City
@@ -23,3 +24,7 @@ class CityCreate(CreateView):
     fields = ['name', 'image', 'population', 'attractions']
     template_name = "city_create.html"
     success_url = "/cities/"
+
+class CityDetail(DetailView):
+    model = City
+    template_name = "city_detail.html"
