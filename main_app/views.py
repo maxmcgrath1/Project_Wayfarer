@@ -76,5 +76,6 @@ class PostCreate(View):
     def post(self, request, pk):
         title = request.POST.get("title")
         body = request.POST.get("body")
-        Post.objects.create(title=title, body=body)
+        city = City.objects.get(pk=pk)
+        Post.objects.create(title=title, body=body, city=city)
         return redirect('city_detail', pk=pk)
