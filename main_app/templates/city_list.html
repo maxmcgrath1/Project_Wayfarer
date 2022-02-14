@@ -1,7 +1,9 @@
 {% extends 'base.html'%}
+{% load static%}
 {% block pgtitle%}
 Cities 
 {% endblock%}
+{% block pgstyles%} <link rel='stylesheet' href="{% static 'styles/city_list.css' %}"/> {% endblock%}
 {% block content%}
 <a href="/">Home</a>
 <a href="{% url 'city_create' %}">Add A City</a>
@@ -18,12 +20,16 @@ Cities
     </div>
     <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
 </form>
-{% for city in cities %}
-<a href="{% url 'city_detail' city.pk %}">
-    <img src="{{city.image}}" alt="{{city.name}}" />
-    <h2>{{city.name}}</h2> 
-</a>
-    <h3>Population: {{city.population}}</h3>
-    <h3>Main Attractions: {{city.attractions}}</h3>
+<div class="cities-container"> 
+    {% for city in cities %}
+    <div class="container-city">
+        <a href="{% url 'city_detail' city.pk %}">
+            <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
+            <h2>{{city.name}}</h2> 
+        </a>
+            <h3>Population: {{city.population}}</h3>
+            <h3>Main Attractions: {{city.attractions}}</h3>
+    </div>
     {% endfor %}
+</div>
 {% endblock%}
