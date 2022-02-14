@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import City
+from .models import City, Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -71,3 +71,10 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+
+class PostCreate(View):
+    def post(self, request, pk):
+        title = request.POST.get("title")
+        body = request.POST.get("body")
+        Post.objects.create(title=title, body=body)
+        return redirect('city_detail', pk=pk)
