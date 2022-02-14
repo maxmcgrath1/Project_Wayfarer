@@ -4,10 +4,10 @@ Cities
 {% endblock%}
 {% block content%}
 {% for city in cities %}
-    <div>
-        <img src="{{city.image}}" alt="{{city.name}}" />
-    </div>
+<a href="{% url 'city_detail' city.pk %}">
+    <img src="{{city.image}}" alt="{{city.name}}" />
     <h2>{{city.name}}</h2> 
+</a>
     <h3>Population: {{city.population}}</h3>
     <h3>Main Attractions: {{city.attractions}}</h3>
     {% endfor %}
