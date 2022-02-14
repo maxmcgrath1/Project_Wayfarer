@@ -4,6 +4,19 @@ Cities
 {% endblock%}
 {% block content%}
 <a href="/">Home</a>
+<h1>{{header}}</h1>
+
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" type="text" name="name" placeholder="name" />
+        </div>
+        <div class="control">
+            <input class="button is-success" type="submit" value="Search" />
+        </div>
+    </div>
+    <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
+</form>
 {% for city in cities %}
 <a href="{% url 'city_detail' city.pk %}">
     <img src="{{city.image}}" alt="{{city.name}}" />
