@@ -30,7 +30,9 @@ class CityCreate(CreateView):
     model = City
     fields = ['name', 'image', 'population', 'attractions']
     template_name = "city_create.html"
-    success_url = "/cities/"
+    
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.object.pk})
 
 class CityDetail(DetailView):
     model = City
@@ -40,4 +42,6 @@ class CityUpdate(UpdateView):
     model = City
     fields = ['name', 'image', 'population', 'attractions']
     template_name = "city_update.html"
-    success_url = "/cities/"
+    
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.object.pk})
