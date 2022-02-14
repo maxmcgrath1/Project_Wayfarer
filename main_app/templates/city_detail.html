@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div>
+    <img src="{{city.image}}" alt="{{city.name}}" />
+</div>
+    <h1>{{city.name}}</h1>
+</div>
+<div class="detail__container">
+    <div class="buttons">
+        <a href="" class="button is-info">
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    <div>
+        <p>Population: {{city.population}}</p>
+        <p>Main Attractions: {{city.attractions}}</p>
+    </div>
+</div>
+{% endblock %}
