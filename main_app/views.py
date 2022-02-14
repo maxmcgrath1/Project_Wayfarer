@@ -5,7 +5,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import City
 
 class Home(TemplateView):
@@ -45,3 +45,8 @@ class CityUpdate(UpdateView):
     
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.pk})
+
+class CityDelete(DeleteView):
+    model = City
+    template_name = "city_delete_confirmation.html"
+    success_url = "/cities/"
