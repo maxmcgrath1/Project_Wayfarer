@@ -3,6 +3,7 @@
 Cities 
 {% endblock%}
 {% block content%}
+<a href="/">Home</a>
 {% for city in cities %}
 <a href="{% url 'city_detail' city.pk %}">
     <img src="{{city.image}}" alt="{{city.name}}" />

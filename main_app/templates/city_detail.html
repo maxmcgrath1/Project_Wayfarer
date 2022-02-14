@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
-
+<a href="/">Home</a>
+<a href="/cities">Back to All Cities</a>
 <div>
     <img src="{{city.image}}" alt="{{city.name}}" />
 </div>
@@ -9,5 +10,8 @@
 <div>
     <p>Population: {{city.population}}</p>
     <p>Main Attractions: {{city.attractions}}</p>
+</div>
+<div>
+    <a href="{% url 'city_update' city.pk %}" class="button is-info"> Update
 </div>
 {% endblock %}
