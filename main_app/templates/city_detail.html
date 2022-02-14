@@ -12,6 +12,19 @@
     <p>Main Attractions: {{city.attractions}}</p>
 </div>
 <div>
+    <h3>Comments</h3>
+    <div>
+        {% for posts in city.posts.all %}
+        <span><b>{{post.title}}</b></span>
+        <span>{{post.body}}</span>
+    </div>
+		{% empty %}
+    <div>
+        <p>No Comments To Show</p>
+    </div>
+    {% endfor %}
+</div>
+<div>
     <a href="{% url 'city_update' city.pk %}" class="button"> Update
     <a href="{% url 'city_delete' city.pk %}" class="button"> Delete
 </div>
