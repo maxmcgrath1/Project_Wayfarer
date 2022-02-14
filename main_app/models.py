@@ -34,7 +34,7 @@ class Post(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, default = 1)
 
     def __str__(self):
-        return self.created_at
+        return self.title
 
     class Meta:
         ordering = ['created_at']
