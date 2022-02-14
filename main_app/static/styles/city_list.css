@@ -1,0 +1,15 @@
+:root {
+    --VH: 100vh;
+    --VW: 100vw;
+}
+.cities-container {
+    max-width: calc(var(--VW) * 0.80);
+}
+.container-city {
+        margin-left: calc(var(--VW) *0.1);
+        margin-right: calc(var(--VW) *0.1);
+    min-width: calc(var(--VW) * 0.80);
+}
+.city-image {
+    max-width: calc(var(--VW) * 0.80);
+}
