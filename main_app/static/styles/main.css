@@ -1,0 +1,18 @@
+:root {
+    --VH: 100vh;
+    --VW: 100vw;
+}
+body {
+    margin: 0 auto;
+    text-align: center;
+    background: #3f3f3f;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+}
+a:hover {
+    text-decoration: underline;
+    color: #ffffff
+}
+
