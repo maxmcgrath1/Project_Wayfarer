@@ -73,10 +73,14 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-@method_decorator(login_required, name='dispatch')
-class PostCreate(CreateView):
-    fields = ['title', 'body', 'city_id', 'user_id']
-    template_name = "city_detail.html"
+# @method_decorator(login_required, name='dispatch')
+class PostCreate(View):
+    def post(self, request, pk):
+        title = request.POST.get("title")
+        body = request.POST.get("body")
+        city = City.objects.get(pk=pk)
+        Post.objects.create(title=title, body=body, city=city)
+        return redirect('city_detail', pk=pk)
 
     # def form_valid(self, form):
     #     form.instance.user = self.request.user
