@@ -11,5 +11,5 @@ urlpatterns = [
     path('cities/<int:pk>/delete', views.CityDelete.as_view(), name ="city_delete"),
     path('cities/<int:pk>/posts/new/', views.PostCreate.as_view(), name="post_create"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
-    path('accounts/<int:pk>/profile', views.Profile.as_view(), name="user_profile")
+    path('accounts/<int:pk>/profile', views.Profile.as_view(), name="user_profile"),
 ]
