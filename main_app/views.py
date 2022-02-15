@@ -31,6 +31,7 @@ class CityList(TemplateView):
             context["header"] = "Featured Cities"
         return context
 
+@method_decorator(login_required, name='dispatch')
 class CityCreate(CreateView):
     model = City
     fields = ['name', 'image', 'population', 'attractions']
@@ -72,10 +73,28 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-class PostCreate(View):
-    def post(self, request, pk):
-        title = request.POST.get("title")
-        body = request.POST.get("body")
-        city = City.objects.get(pk=pk)
-        Post.objects.create(title=title, body=body, city=city)
-        return redirect('city_detail', pk=pk)
+@method_decorator(login_required, name='dispatch')
+class PostCreate(CreateView):
+    fields = ['title', 'body', 'city_id', 'user_id']
+    template_name = "city_detail.html"
+
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super(PostCreate, self).form_valid(form)
+
+    # def get_success_url(self):
+    #     print(self.kwargs)
+    #     return reverse('city_detail', kwargs={'pk': self.object.pk})
+
+    # def login(request):
+    #     nxt = request.GET.get("next", None)
+    #     url = '/accounts/login/'
+
+    #     if nxt is not None:
+    #         url += '?next=' + nxt
+
+    #     return redirect(url)
+
+@method_decorator(login_required, name='dispatch')
+class Profile(TemplateView):
+    template_name = "user_profile.html"
