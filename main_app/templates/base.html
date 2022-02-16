@@ -7,11 +7,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel='stylesheet' href="{% static 'styles/main.css' %}"/>
         {% block pgstyles%} {% endblock%}
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <title>{% block pgtitle%}{% endblock%}</title>
     </head>
     <body>
         <nav>
-            {% if user.is_authenticated %}
+            <div class='nav-bar-container'>
+                <ul class="nav-bar-items">
+                    <li class = "nav-bar-item nav-bar-logo">
+                            <img class="nav-bar-icon" src="https://st2.depositphotos.com/3096625/9284/v/600/depositphotos_92842844-stock-illustration-monogram-letter-w-logo.jpg">
+                    </li>
+                    <li class="nav-bar-item navbar-selector1">
+                        <a href="/">
+                               <p class="midbar"> Home </p>
+                        </a>
+                    </li>
+                    <li class="nav-bar-item navbar-selector2">
+                       
+                        <a href="/cities">
+                                <p class="midbar">Cities</p>
+                        </a>
+                    </li>
+                    <li class="nav-bar-item nav-auth">
+                        <a href="#">
+                                <p class="endbar">Login/Singup</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <script src="{% static 'scripts/main.js'%}"></script>
+        <main>
+
+            {% block content %} {% endblock%}
+        </main>
+    </body>
+</html>
+{% comment %} {% if user.is_authenticated %}
                 <span>Welcome: {{user.username}}</span>
                 <a href="{% url 'logout' %}">Logout</a>
                 {% else %}
@@ -19,10 +53,4 @@
                         <a href="{% url 'login' %}">Log In</a>
                         <a href="{% url 'signup' %}">Sign Up</a>
                     </div>
-                {% endif %}
-        </nav>
-        <main>
-            {% block content %} {% endblock%}
-        </main>
-    </body>
-</html>
+                {% endif %} {% endcomment %}

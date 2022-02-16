@@ -1,9 +1,11 @@
 :root {
     --VH: 100vh;
     --VW: 100vw;
+    --WU: calc((var(--VW) * 0.05));
 }
 body {
     margin: 0 auto;
+    margin-top: calc(-.2 * var(--WU));
     text-align: center;
     background: #3f3f3f;
 }
@@ -12,7 +14,50 @@ a {
     color: #000000;
 }
 a:hover {
-    text-decoration: underline;
     color: #ffffff
 }
+nav, .nav-bar-container {
+    margin: 0 auto;
+}
+ul { 
+    list-style-type: none;
+    display: flex
+}
+li {
+    list-style-type: none;
+}
+ul.nav-bar-items {
+    display: flex;
+    background: #c09e5f;
+    border-bottom: solid;
+    transition: 0.8s;
+}
+ul.nav-bar-items:hover {
+    border-color: white;
+    color:white
+}
+li.nav-bar-item {
+    padding-right: 200px;
+}
+li.nav-auth {
+    margin-left: calc(var(--WU) * 6.13);
+}
+li.nav-bar-logo {
+    justify-self: left;
+    margin-left: calc(var(--WU) *-.65);
+    border-right: none;
+}
 
+img.nav-bar-icon {
+    display: block;
+    max-width: calc(var(--WU) *1.2);
+    margin: 0 auto;
+}
+p.midbar {
+   transform: translate(calc(var(--WU) * 0),calc(var(--WU) * .22));
+   font-size: large;
+}
+p.endbar {
+    transform: translateY(calc(.22 * var(--WU)))
+
+}
