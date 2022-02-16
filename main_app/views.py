@@ -76,17 +76,15 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class PostCreate(View):
     def post(self, request, pk):
         title = request.POST.get("title")
         body = request.POST.get("body")
         city = City.objects.get(pk=pk)
-        Post.objects.create(title=title, body=body, city=city)
+        user = User.objects.get(username=request.user)
+        Post.objects.create(title=title, body=body, city=city, user=user)
         return redirect('city_detail', pk=pk)
-
-    # def slug(self):
-    #     return slugify(self.title)
 
 
     def form_valid(self, form):
