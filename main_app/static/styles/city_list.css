@@ -7,26 +7,44 @@ div.city-container {
     display: flex;
 }
 div.city-list {
-    margin-left: calc(var(--VH) * 0.106);
+    margin-left: calc(var(--VH) * 0.012);
     padding: calc(var(--VH) * 0.015);
-    border: solid;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-right-width: 1px;
     height: max-content;
     overflow-y: scroll;
-    background-color: #555555;
+    background-color: #1da5af;
+    min-width: max-content;
+    width: calc(var(--VH) * .48);
+    transition: 0.8s;
 }
 div.each-city {
-    margin-left: calc(var(--VH) * 0.05) ;
+    margin-left: calc(var(--VH) * 0.012) ;
+    background-color: #1da5af;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-left-width: 1px;
+    transition: 0.8s;
+}
+div.each-city:hover, div.city-list:hover {
+    border-color: #ffffff;
 }
 .city-btns {
     display: flex;
     flex-flow: column wrap;
 }
 .city-btn {
+    --size: max-content;
+    width: var(--size) ;
+    min-width: max-content;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: calc(var(--WU) * 0.5) ;
     margin: 0, auto;
-    margin-bottom: calc(var(--WU) * 0.15) ;
-    padding: 13px 13px;
+    margin-bottom: calc(var(--WU) * 0.25) ;
+    padding: 5px 50px;
     text-align: center;
     transition: 0.5s;
     background-size: 200% auto;
@@ -59,15 +77,20 @@ div.each-city {
     margin-left: calc(var(--VW) *0.1);
     margin-right: calc(var(--VW) *0.1);
     width: calc(var(--VW) * 0.67);
+    margin-bottom: 10px;    
 }
 .city-info-container {
     display: flex;
+    padding: calc(var(--WU) *.1);
+    margin-right: calc(var(--WU) * .25);
     flex-flow: column wrap;
-    margin-left: calc(var(--WU) * -2);;
+    margin-left: calc(var(--WU) * -2.05);;
     justify-content: start;
     max-width: calc(var(--WU) * 5);
-    width: calc(var(--WU) * 4);
+    width: calc(var(--WU) * 3.8);
     height: max-content;
+    border: solid;
+    border-radius: 5%;
 }
 .city-image {
     max-width: calc(var(--VW) * 0.45);
@@ -75,11 +98,33 @@ div.each-city {
     border-radius: 2%;
 }
 .city-info, .city-name {
-    width: calc(var(--WU) * 4) ;
+    width: calc(var(--WU) * 3.7) ;
+
 }
-.city-info { 
-    font-size: small;
-    line-height: 0.1em;
+.city-info {
+    margin-left: calc(var(--WU) * .2); 
+    margin-top: calc(var(--WU) * .2) ;
+    font-size: big;
+    text-align: left;
+    
     /* transform: translate(calc(var(--VW) * -0.11),calc(var(--VW) * -0.21) ); */
 }
-
+div.control {
+    display: flex;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+.queryheader {
+    text-align: start;
+    color: #ffffff;
+}
+.input {
+    cursor: pointer;
+    background: #aaaaaa;
+}
+.input:focus {
+    cursor:default;
+    box-shadow: 0 0 15px;
+    background: #ffffff;
+    outline: none;
+}
