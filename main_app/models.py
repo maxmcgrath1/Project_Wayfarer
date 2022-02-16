@@ -45,6 +45,6 @@ class Post(models.Model):
 ###########################################################################################
 class Profile(models.Model):
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    posts = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default =1)
+    posts = models.ForeignKey(Post, on_delete=models.CASCADE, default = 2)
     image = models.CharField(max_length=250)
