@@ -99,6 +99,20 @@ class PostCreate(View):
 
     #     return redirect(url)
 
+class PostUpdate(UpdateView):
+    model = Post
+    fields = ['title', 'body', 'city']
+    template_name = "post_update.html"
+    success_url = "/cities/"
+
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.object.pk})
+
+class PostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete_confirmation.html"
+    success_url = "/cities/"
+
 @method_decorator(login_required, name='dispatch')
 class Profile(TemplateView):
     template_name = "user_profile.html"
