@@ -47,8 +47,8 @@
         <span>{{post.body}}</span>
         <br />
         <div>
-            <a href="{% url 'post_update' post.pk %}" class="button"> Update
-            <a href="{% url 'post_delete' post.pk %}" class="button"> Delete
+            <a href="{% url 'post_update' city.pk post.pk %}" class="button"> Update
+            <a href="{% url 'post_delete' city.pk post.pk %}" class="button"> Delete
         </div>
     </div>
 		{% empty %}
