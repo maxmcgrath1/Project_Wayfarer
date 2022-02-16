@@ -47,6 +47,10 @@
         <br />
         <span>{{post.body}}</span>
         <br />
+        <div>
+            <a href="{% url 'post_update' city.pk post.pk %}" class="button"> Update
+            <a href="{% url 'post_delete' city.pk post.pk %}" class="button"> Delete
+        </div>
     </div>
 		{% empty %}
     <div>
@@ -58,4 +62,5 @@
     <a href="{% url 'city_update' city.pk %}" class="button"> Update
     <a href="{% url 'city_delete' city.pk %}" class="button"> Delete
 </div>
+
 {% endblock %}
