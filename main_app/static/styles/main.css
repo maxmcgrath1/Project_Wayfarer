@@ -26,6 +26,9 @@ ul {
 li {
     list-style-type: none;
 }
+span:hover {
+    cursor: pointer;
+}
 ul.nav-bar-items {
     display: flex;
     background: #c09e5f;
@@ -57,7 +60,6 @@ p.midbar {
    transform: translate(calc(var(--WU) * 0),calc(var(--WU) * .22));
    font-size: large;
 }
-p.endbar {
-    transform: translateY(calc(.22 * var(--WU)))
-
+a.endbar {
+    transform: translateY(calc(.22 * var(--WU)));
 }

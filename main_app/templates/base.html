@@ -31,8 +31,13 @@
                         </a>
                     </li>
                     <li class="nav-bar-item nav-auth">
-                        <a href="#">
-                                <p class="endbar">Login/Singup</p>
+                        {% if user.is_authenticated %}
+                            <span class="endbar">Welcome: {{user.username}}</span>
+                            <a class="endbar" href="{% url 'logout' %}">Logout</a>
+                        {% else %} 
+                                <a class="endbar" href="{% url 'login' %}">Log In</a>
+                                <a class="endbar" href="{% url 'signup' %}">Sign Up</a>
+                            {% endif %}
                         </a>
                     </li>
                 </ul>
