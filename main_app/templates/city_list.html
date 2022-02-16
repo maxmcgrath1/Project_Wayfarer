@@ -5,7 +5,37 @@ Cities
 {% endblock%}
 {% block pgstyles%} <link rel='stylesheet' href="{% static 'styles/city_list.css' %}"/> {% endblock%}
 {% block content%}
-<a href="/">Home</a>
+<div class="city-container">
+    <div class="city-list">
+        <h1>
+        All Cities
+        </h1>
+        <div class="city-btns">
+            {% for city in cities%}
+            <button class="city-btn">{{city.name}}</button>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="each-city">
+        <div class="cities-container"> 
+            {% for city in cities %}
+            <div class="container-city">
+                <div class="city-info-container">
+                    <a class="city-link" href="{% url 'city_detail' city.pk %}"> 
+                        <h2 class="city-name">{{city.name}}</h2> 
+                    </a>
+                    <p class="city-info">Population: {{city.population}}</h3>
+                    <p class="city-info">Main Attractions: {{city.attractions}}</h3>
+                </div>
+                <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
+            </div>
+            {% endfor %}
+        </div> 
+    </div>
+</div>
+
+{% endblock%}
+{% comment %} <a href="/">Home</a>
 <a href="{% url 'city_create' %}">Add A City</a>
 <h1>{{header}}</h1>
 
@@ -31,5 +61,4 @@ Cities
             <h3>Main Attractions: {{city.attractions}}</h3>
     </div>
     {% endfor %}
-</div>
-{% endblock%}
+</div> {% endcomment %}
