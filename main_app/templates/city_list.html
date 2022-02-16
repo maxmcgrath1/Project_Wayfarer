@@ -7,8 +7,23 @@ Cities
 {% block content%}
 <div class="city-container">
     <div class="city-list">
-        <h1>
-        All Cities
+        <form class="mb-5" method="get">
+            <div class="field has-addons">
+                <div class="control-container">
+                    <h5>
+                        Search for a city:
+                    </h5>
+                    <div class="control">
+                        <input class="input" type="text" name="name" placeholder="City" />
+                        <input class="button is-success" type="submit" value="Search" />
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
+        </form>
+        <h1 class="queryheader">
+        Cities :
         </h1>
         <div class="city-btns">
             {% for city in cities%}
@@ -28,7 +43,7 @@ Cities
                     <p class="city-info">Main Attractions: {{city.attractions}}</h3>
                 </div>
                 <a class="city-link" href="{% url 'city_detail' city.pk %}">
-                <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
+                    <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
                 </a>
             </div>
             {% endfor %}

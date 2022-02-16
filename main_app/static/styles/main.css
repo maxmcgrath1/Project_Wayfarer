@@ -11,10 +11,10 @@ body {
 }
 a {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
 }
 a:hover {
-    color: #ffffff
+    color: #000000;
 }
 nav, .nav-bar-container {
     margin: 0 auto;
@@ -55,6 +55,10 @@ img.nav-bar-icon {
     display: block;
     max-width: calc(var(--WU) *1.2);
     margin: 0 auto;
+    border-right: solid;
+}
+img.nav-bar-icon:hover {
+    border-right: #ffffff;
 }
 p.midbar {
    transform: translate(calc(var(--WU) * 0),calc(var(--WU) * .22));
@@ -62,4 +66,7 @@ p.midbar {
 }
 a.endbar {
     transform: translateY(calc(.22 * var(--WU)));
+}
+div.auth-container {
+    transform: translateY(10px);
 }
