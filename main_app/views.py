@@ -9,6 +9,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import City, Post
 from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -111,16 +112,16 @@ class PostUpdate(UpdateView):
     template_name = "post_update.html"
     success_url = "/cities/"
 
-    def get_success_url(self):
-        return reverse('city_detail', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return reverse('city_detail', kwargs={'pk': self.object.pk})
 
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete_confirmation.html"
     success_url = "/cities/"
     
-    def get_success_url(self):
-        return redirect('post_delete', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return redirect('post_delete', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
 class Profile(TemplateView):
