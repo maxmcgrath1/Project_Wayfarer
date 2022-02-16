@@ -1,3 +1,3 @@
 INSERT INTO main_app_profile(image, posts_id, user_id)
    VALUES
-      ('https://i.imgur.com/HsXgOAc.jpg', 2, 1);
+      ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaWLP_OgLAQcx2nwZ8SirZvMzcitzIhBY4EQ-Q0SM3KFkfQJ2W8Gw9OHOnhOMT2VO8crQ&usqp=CAU', 29, 1);
