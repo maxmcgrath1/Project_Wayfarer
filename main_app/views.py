@@ -1,3 +1,4 @@
+from contextlib import redirect_stderr
 from re import template
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -111,7 +112,9 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete_confirmation.html"
-    success_url = "/cities/"
+
+    def get_success_url(self):
+        return redirect('post_delete', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
 class Profile(TemplateView):
