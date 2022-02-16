@@ -27,7 +27,9 @@ Cities
                     <p class="city-info">Population: {{city.population}}</h3>
                     <p class="city-info">Main Attractions: {{city.attractions}}</h3>
                 </div>
+                <a class="city-link" href="{% url 'city_detail' city.pk %}">
                 <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
+                </a>
             </div>
             {% endfor %}
         </div> 
