@@ -41,8 +41,11 @@
     <h3>Comments</h3>
     <div>
         {% for post in city.posts.all %}
+        <h2>{{user}} posted:</h2>
         <span><b>{{post.title}}</b></span>
+        <br />
         <span>{{post.body}}</span>
+        <br />
     </div>
 		{% empty %}
     <div>

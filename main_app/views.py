@@ -75,10 +75,13 @@ class Signup(View):
             return render(request, "registration/signup.html", context)
 
 # @method_decorator(login_required, name='dispatch')
-class PostCreate(CreateView):
-    model = Post
-    fields = ['title', 'body']
-    template_name = "city_detail.html"
+class PostCreate(View):
+    def post(self, request, pk):
+        title = request.POST.get("title")
+        body = request.POST.get("body")
+        city = City.objects.get(pk=pk)
+        Post.objects.create(title=title, body=body, city=city)
+        return redirect('city_detail', pk=pk)
 
     # def slug(self):
     #     return slugify(self.title)
