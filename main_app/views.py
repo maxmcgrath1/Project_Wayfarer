@@ -9,9 +9,11 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import City, Post
 from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.template.defaultfilters import slugify
 
 
 class Home(TemplateView):
@@ -83,13 +85,17 @@ class PostCreate(View):
         Post.objects.create(title=title, body=body, city=city)
         return redirect('city_detail', pk=pk)
 
-    # def form_valid(self, form):
-    #     form.instance.user = self.request.user
-    #     return super(PostCreate, self).form_valid(form)
+    # def slug(self):
+    #     return slugify(self.title)
 
-    # def get_success_url(self):
-    #     print(self.kwargs)
-    #     return reverse('city_detail', kwargs={'pk': self.object.pk})
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PostCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('post_create', kwargs={'pk': self.object.pk})
 
     # def login(request):
     #     nxt = request.GET.get("next", None)
@@ -106,16 +112,16 @@ class PostUpdate(UpdateView):
     template_name = "post_update.html"
     success_url = "/cities/"
 
-    def get_success_url(self):
-        return reverse('city_detail', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return reverse('city_detail', kwargs={'pk': self.object.pk})
 
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete_confirmation.html"
     success_url = "/cities/"
     
-    def get_success_url(self):
-        return redirect('post_delete', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return redirect('post_delete', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
 class Profile(TemplateView):
