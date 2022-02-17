@@ -1,4 +1,5 @@
 from email.mime import image
+from multiprocessing import AuthenticationError
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
@@ -51,3 +52,12 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user
+
+class PostComment(models.Model):
+
+    body = models.CharField(max_length=250)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default =1)
+
+    class Meta:
+        ordering = ['-created_at']
+
