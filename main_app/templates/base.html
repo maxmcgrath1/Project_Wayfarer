@@ -32,9 +32,7 @@
                     <li class="nav-bar-item nav-auth">
                         {% if user.is_authenticated %}
                             <span class="endbar">Welcome: {{user.username}}</span>
-                            <br />
                             <a class="endbar" href="{% url 'logout' %}">Logout</a>
-                            <br />
                             <a href="{% url 'user_profile' user.pk %}">Profile</a>
                         {% else %} 
                                 <a class="endbar" href="{% url 'login' %}">Log In</a>
