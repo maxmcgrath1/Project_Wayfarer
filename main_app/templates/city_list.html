@@ -27,14 +27,14 @@ Cities
         </h1>
         <div class="city-btns">
             {% for city in cities%}
-            <button class="city-btn">{{city.name}}</button>
+            <button value="{{city.name}}" class="city-btn b1">{{city.name}}</button>
             {% endfor %}
         </div>
     </div>
     <div class="each-city">
         <div class="cities-container"> 
             {% for city in cities %}
-            <div class="container-city">
+            <div value={{city.name}} class="container-city">
                 <div class="city-info-container">
                     <a class="city-link" href="{% url 'city_detail' city.pk %}"> 
                         <h2 class="city-name">{{city.name}}</h2> 

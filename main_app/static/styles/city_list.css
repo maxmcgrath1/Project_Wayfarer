@@ -15,14 +15,14 @@ div.city-list {
     border-right-width: 1px;
     height: max-content;
     overflow-y: scroll;
-    background-color: #1da5af;
+    background-color: #4a4a4a;
     min-width: max-content;
     width: calc(var(--VH) * .48);
     transition: 0.8s;
 }
 div.each-city {
     margin-left: calc(var(--VH) * 0.012) ;
-    background-color: #1da5af;
+    background-color: #6e6e6e;
     border-top: solid;
     border-bottom: solid;
     border-width: 2px;
