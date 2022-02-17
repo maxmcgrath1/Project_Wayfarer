@@ -1,5 +1,6 @@
 from contextlib import redirect_stderr
 from re import template
+from xml.etree.ElementTree import Comment
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
@@ -138,7 +139,7 @@ class ProfileUpdate(UpdateView):
         return reverse('user_profile', kwargs={'pk': self.object.pk})
 
 
-# class PostComment(View):
+# class Comment(View):
 #     def post(self, request, pk):
 #         body = request.POST.get("body")
 #         author = User.objects.get(username=request.user)
@@ -153,3 +154,7 @@ class ProfileUpdate(UpdateView):
 #     def get_success_url(self):
 #         print(self.kwargs)
 #         return reverse('post_create', kwargs={'pk': self.object.pk})
+
+class CommentDetail(DetailView):
+    model = Comment
+    template_name = "comment_detail.html"

@@ -56,7 +56,7 @@ class Profile(models.Model):
 ###########################################################################################
 ###########################################################################################
 
-# class PostComment(models.Model):
+# class Comment(models.Model):
 
 #     body = models.CharField(max_length=250)
 #     author = models.ForeignKey(User, on_delete=models.CASCADE, default =1)
