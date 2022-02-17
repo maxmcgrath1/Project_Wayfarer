@@ -4,4 +4,7 @@ My Profile
 {% endblock%}
 {% block content%}
 <h1 class=>This is my profile page, it's very nice.</h1>
+<img src="{{user.profile.image}}" /> 
+<h2>HELLO, {{user.username}}</h2>
+<h3>You joined Wayfarer on {{user.date_joined}}</h3>
 {% endblock%}
