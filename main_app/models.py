@@ -1,4 +1,3 @@
-from asyncio.proactor_events import _ProactorDuplexPipeTransport
 from email.mime import image
 from django.db import models
 from django.contrib.auth.models import User
@@ -43,8 +42,12 @@ class Post(models.Model):
 
 ###########################################################################################
 ###########################################################################################
+
 class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, default =1)
     posts = models.ForeignKey(Post, on_delete=models.CASCADE, default = 2)
     image = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.user

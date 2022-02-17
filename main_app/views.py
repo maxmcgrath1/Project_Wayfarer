@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import City, Post
+from .models import City, Post, Profile
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -47,6 +47,7 @@ class CityDetail(DetailView):
     model = City
     template_name = "city_detail.html"
 
+@method_decorator(login_required, name='dispatch')
 class CityUpdate(UpdateView):
     model = City
     fields = ['name', 'image', 'population', 'attractions']
@@ -55,6 +56,7 @@ class CityUpdate(UpdateView):
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class CityDelete(DeleteView):
     model = City
     template_name = "city_delete_confirmation.html"
@@ -76,7 +78,7 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class PostCreate(View):
     def post(self, request, pk):
         title = request.POST.get("title")
@@ -104,28 +106,32 @@ class PostCreate(View):
 
     #     return redirect(url)
 
+@method_decorator(login_required, name='dispatch')
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'body', 'city']
     template_name = "post_update.html"
     success_url = "/cities/"
 
-    # def get_success_url(self):
-    #     return reverse('city_detail', kwargs={'pk': self.object.pk})
-
+@method_decorator(login_required, name='dispatch')
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete_confirmation.html"
     success_url = "/cities/"
-    
-    # def get_success_url(self):
-    #     return redirect('post_delete', kwargs={'pk': self.object.pk})
 
 # @method_decorator(login_required, name='dispatch')
-class Profile(TemplateView):
+class UserProfile(TemplateView):
     template_name = "user_profile.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["profiles"] = User.objects.all()
         return context
+
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['user', 'image', 'posts']
+    template_name = "profile_update.html"
+    
+    def get_success_url(self):
+        return reverse('user_profile', kwargs={'pk': self.object.pk})
