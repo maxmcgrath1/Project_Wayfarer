@@ -1,7 +1,26 @@
 {% extends 'base.html'%}
+{% load static %}
 {% block pgtitle%}
 Home
 {% endblock%}
+{% block pgstyles%} <link rel='stylesheet' href="{% static 'styles/home.css' %}"/> {% endblock%}
 {% block content%}
-<h1 class=>This is our Wayfarer Home Page. It's good.</h1>
+<header> 
+    <img src="https://i.imgur.com/veCYbAM.png" alt="People With Backpacks">
+</header>
+<h1 class=>Wayfarer is...</h1>
+<div class="topic_container">
+    <div class="topic">
+        <header class="topic_header">Topic</header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper porttitor nunc, at vehicula nisl vestibulum a. Praesent finibus, nunc sed convallis placerat, ex augue viverra arcu, in blandit velit dolor et turpis. Vestibulum a dignissim odio. Sed vehicula, eros quis suscipit suscipit, orci augue hendrerit lacus, at iaculis lorem ligula sollicitudin mauris. Donec non nisi molestie, egestas urna faucibus, malesuada lorem. Sed cursus id diam quis efficitur. Pellentesque eu semper sapien. Integer malesuada efficitur elit at sollicitudin.</p>
+    </div>
+    <div class="topic">
+        <header class="topic_header">Topic</header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper porttitor nunc, at vehicula nisl vestibulum a. Praesent finibus, nunc sed convallis placerat, ex augue viverra arcu, in blandit velit dolor et turpis. Vestibulum a dignissim odio. Sed vehicula, eros quis suscipit suscipit, orci augue hendrerit lacus, at iaculis lorem ligula sollicitudin mauris. Donec non nisi molestie, egestas urna faucibus, malesuada lorem. Sed cursus id diam quis efficitur. Pellentesque eu semper sapien. Integer malesuada efficitur elit at sollicitudin.</p>
+    </div>
+    <div class="topic">
+        <header class="topic_header">Topic</header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper porttitor nunc, at vehicula nisl vestibulum a. Praesent finibus, nunc sed convallis placerat, ex augue viverra arcu, in blandit velit dolor et turpis. Vestibulum a dignissim odio. Sed vehicula, eros quis suscipit suscipit, orci augue hendrerit lacus, at iaculis lorem ligula sollicitudin mauris. Donec non nisi molestie, egestas urna faucibus, malesuada lorem. Sed cursus id diam quis efficitur. Pellentesque eu semper sapien. Integer malesuada efficitur elit at sollicitudin.</p>
+    </div>
+</div>
 {% endblock%}
