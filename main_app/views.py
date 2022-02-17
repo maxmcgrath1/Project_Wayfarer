@@ -121,6 +121,11 @@ class PostDelete(DeleteView):
     # def get_success_url(self):
     #     return redirect('post_delete', kwargs={'pk': self.object.pk})
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class Profile(TemplateView):
     template_name = "user_profile.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["profiles"] = User.objects.all()
+        return context
