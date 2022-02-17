@@ -3,8 +3,10 @@
 My Profile
 {% endblock%}
 {% block content%}
-<h1 class=>This is my profile page, it's very nice.</h1>
-<h2>HELLO, {{user.username}}</h2>
+<h1>Viewing Profile for User {{user.username}}</h1> 
+<a href="{% url 'profile_update' user.profile.pk %}" class="button"> Edit Profile
+    <br />
+    <br />
 <img src="{{user.profile.image}}" /> 
 <h3>You joined Wayfarer on {{user.date_joined}}</h3>
 <br />
@@ -25,5 +27,4 @@ My Profile
     <br />
     <div>
     {% endfor %}
-<a href="{% url 'profile_update' user.profile.pk %}" class="button"> Edit Profile
 {% endblock%}
