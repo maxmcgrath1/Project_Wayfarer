@@ -4,8 +4,26 @@ My Profile
 {% endblock%}
 {% block content%}
 <h1 class=>This is my profile page, it's very nice.</h1>
-<img src="{{user.profile.image}}" /> 
 <h2>HELLO, {{user.username}}</h2>
+<img src="{{user.profile.image}}" /> 
 <h3>You joined Wayfarer on {{user.date_joined}}</h3>
+<br />
+<h3>Your current post history:</h3>
+    <br />
+    {% for post in posts %}
+    {{post.user}}
+    <span>Posted On {{post.created_at}}</span>
+    <br />
+    <span>In City: <b>{{post.city}}</b></span>
+    <br />
+    <br />
+    <span><b>Title: {{post.title}}</b></span>
+    <br />
+    <span>Comment: {{post.body}}</span>
+    <br />
+    <br />
+    <br />
+    <div>
+    {% endfor %}
 <a href="{% url 'profile_update' user.profile.pk %}" class="button"> Edit Profile
 {% endblock%}

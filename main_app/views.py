@@ -126,11 +126,12 @@ class UserProfile(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["profiles"] = User.objects.all()
+        context["posts"] = Post.objects.all()
         return context
 
 class ProfileUpdate(UpdateView):
     model = Profile
-    fields = ['user', 'image', 'posts']
+    fields = ['image']
     template_name = "profile_update.html"
     
     def get_success_url(self):
