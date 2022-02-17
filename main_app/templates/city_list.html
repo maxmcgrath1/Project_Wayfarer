@@ -27,7 +27,9 @@ Cities
         </h1>
         <div class="city-btns">
             {% for city in cities%}
-            <button value="{{city.name}}" class="city-btn b1">{{city.name}}</button>
+            <a class="city-link" href="{% url 'city_detail' city.pk %}"> 
+                <button value="{{city.name}}" class="city-btn b1">{{city.name}}</button>
+            </a>
             {% endfor %}
         </div>
     </div>

@@ -3,7 +3,8 @@
 <h1>Update {{post.title}}</h1>
 
 <form action="" method="post">
-    {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit" />
+    {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit Edit" />
+    <a class="button is-primary" href="{% url 'city_detail' post.city.pk %}">Cancel</a>
 </form>
 
 {% endblock %}

@@ -110,7 +110,7 @@ class PostCreate(View):
 @method_decorator(login_required, name='dispatch')
 class PostUpdate(UpdateView):
     model = Post
-    fields = ['title', 'body', 'city']
+    fields = ['title', 'body']
     template_name = "post_update.html"
     success_url = "/cities/"
 
