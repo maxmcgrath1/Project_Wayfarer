@@ -7,4 +7,5 @@ My Profile
 <img src="{{user.profile.image}}" /> 
 <h2>HELLO, {{user.username}}</h2>
 <h3>You joined Wayfarer on {{user.date_joined}}</h3>
+<a href="{% url 'profile_update' user.profile.pk %}" class="button"> Edit Profile
 {% endblock%}
