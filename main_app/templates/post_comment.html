@@ -1,15 +1,11 @@
 {% extends 'base.html' %} 
 {% block content %}
 <a href="/">Home</a>
-<a href="/cities">Back to All Cities</a>
+<a href="/cities/<int:pk>/">Back to All Cities</a>
 <div>
     <img src="{{city.image}}" alt="{{city.name}}" />
 </div>
     <h1>{{city.name}}</h1>
-</div>
-<div>
-    <p>Population: {{city.population}}</p>
-    <p>Main Attractions: {{city.attractions}}</p>
 </div>
 <form class="mb-5" action="{% url 'post_create' city.pk %}" method="post">
     {% csrf_token %}
@@ -50,8 +46,6 @@
         <div>
             <a href="{% url 'post_update' post.pk %}" class="button"> Update Post
             <a href="{% url 'post_delete' post.pk %}" class="button"> Delete Post
-                <p>==================</p>
-                <p>==================</p>
         </div>
     </div>
 		{% empty %}
