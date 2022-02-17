@@ -136,3 +136,20 @@ class ProfileUpdate(UpdateView):
     
     def get_success_url(self):
         return reverse('user_profile', kwargs={'pk': self.object.pk})
+
+
+# class PostComment(View):
+#     def post(self, request, pk):
+#         body = request.POST.get("body")
+#         author = User.objects.get(username=request.user)
+#         post = Post.objects.get(pk=pk)
+#         PostComment.objects.create(body=body, author=author, post=post)
+#         return redirect('city_detail', pk=pk)
+
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super(PostCreate, self).form_valid(form)
+
+#     def get_success_url(self):
+#         print(self.kwargs)
+#         return reverse('post_create', kwargs={'pk': self.object.pk})

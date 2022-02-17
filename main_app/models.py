@@ -53,11 +53,15 @@ class Profile(models.Model):
     def __str__(self):
         return self.user
 
-class PostComment(models.Model):
+###########################################################################################
+###########################################################################################
 
-    body = models.CharField(max_length=250)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default =1)
+# class PostComment(models.Model):
 
-    class Meta:
-        ordering = ['-created_at']
+#     body = models.CharField(max_length=250)
+#     author = models.ForeignKey(User, on_delete=models.CASCADE, default =1)
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE, default = 2)
+
+#     class Meta:
+#         ordering = ['-created_at']
 
