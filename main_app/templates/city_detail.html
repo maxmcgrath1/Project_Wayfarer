@@ -15,31 +15,9 @@
     <a class="city-link" href="{% url 'city_detail' city.pk %}">
         <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
     </a>
-    <div class="add-post-div">
-        <a href="{% url 'comment_detail' city.pk %}" class="add-post-link"> </a>
-        <img class="add-post-image" src="https://i.imgur.com/skr6ozF.png" />
-    </div>
 <div class="city-list-detail">
     <h2 class="city-list-post-header"> Posts </h2> 
-    {% for post in city.posts.all %}
-        <div class="city-list-post-container">
-            <img src="{{post.user.profile.image}}" /> 
-            <h5 class="city-list-post-content city-list-post-username">@{{post.user}} </h5>
-            <h2 class="city-list-post-content list-post-content"><b>{{post.title}}</b></h2>
-            <br />
-            <p class="post-body city-list-post-content list-post-content">{{post.body}}</p>
-            <br />
-            <div>
-                <a href="{% url 'post_update' post.pk %}" class="button editlink city-list-post-content"> Update Post </a>
-                <a href="{% url 'post_delete' post.pk %}" class="button deletebutton city-list-post-content"> Delete Post </a>
-            </div>
-        </div>
-        {% empty %}
-            <div class="city-list-post-container">
-                <p class="city-list-post-content ">No Comments To Show</p>
-            </div>
-        {% endfor %}
-        {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
     <form class="mb-5" action="{% url 'post_create' city.pk %}" method="post">
     {% csrf_token %}
     <div class="field has-addons">
@@ -70,11 +48,29 @@
 {% else %}
 <h3>If you would like to leave a comment, please <a href="{% url 'login' %}">Log In</a> first! Don't have an account? <a href="{% url 'signup' %}">Sign Up!</a> </h3>
 {% endif %}
+    {% for post in city.posts.all %}
+        <div class="city-list-post-container">
+            <img src="{{post.user.profile.image}}" /> 
+            <h5 class="city-list-post-content city-list-post-username">@{{post.user}} </h5>
+            <h2 class="city-list-post-content list-post-content"><b>{{post.title}}</b></h2>
+            <br />
+            <p class="post-body city-list-post-content list-post-content">{{post.body}}</p>
+            <br />
+            <div>
+                <a href="{% url 'post_update' post.pk %}" class="button editlink city-list-post-content"> Update Post </a>
+                <a href="{% url 'post_delete' post.pk %}" class="button deletebutton city-list-post-content"> Delete Post </a>
+            </div>
+        </div>
+        {% empty %}
+            <div class="city-list-post-container">
+                <p class="city-list-post-content ">No Comments To Show</p>
+            </div>
+        {% endfor %}
+</div>
 </div>
 <div>
     <br />
     <a href="{% url 'city_update' city.pk %}" class="btn btn-info"> Update City</a>
     <a href="{% url 'city_delete' city.pk %}" class="btn btn-danger"> Delete City</a>
-</div>
 </div>
 {% endblock %}

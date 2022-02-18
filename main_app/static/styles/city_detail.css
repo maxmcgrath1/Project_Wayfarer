@@ -46,7 +46,7 @@
 
 }
 .city-info {
-    margin-left: calc(var(--WU) * .2); 
+    margin-left: calc(var(--WU) * .10); 
     margin-top: calc(var(--WU) * .2) ;
     font-size: big;
     text-align: left;
@@ -81,7 +81,7 @@
     border-radius: 50%;
 }
 div.city-list-detail {
-    margin-left: calc(var(--WU) * -1.4) ;
+    margin-left: calc(var(--WU) * 1) ;
     border-radius: 3%;
     margin-bottom: calc(var(--WU) *.3);
     padding-bottom: calc(var(--WU) *.3);
@@ -96,9 +96,8 @@ div.city-list-detail:hover {
     cursor: pointer;
 }
 h2.city-list-post-header {
-    text-align: left;
+    text-align: center;
     margin: 0;
-    margin-left: calc(var(--WU) *2 );
     margin-top: calc(var(--WU) * .3);
     text-decoration: underline;
 }
