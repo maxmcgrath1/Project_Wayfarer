@@ -1,4 +1,3 @@
-from contextlib import redirect_stderr
 from re import template
 from xml.etree.ElementTree import Comment
 from django.shortcuts import render, redirect
@@ -79,7 +78,7 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class PostCreate(View):
     def post(self, request, pk):
         title = request.POST.get("title")
@@ -120,7 +119,7 @@ class PostDelete(DeleteView):
     template_name = "post_delete_confirmation.html"
     success_url = "/cities/"
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class UserProfile(TemplateView):
     template_name = "user_profile.html"
 
@@ -130,6 +129,7 @@ class UserProfile(TemplateView):
         context["posts"] = Post.objects.filter(user=self.kwargs['pk'])
         return context
 
+@method_decorator(login_required, name='dispatch')
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['image']
