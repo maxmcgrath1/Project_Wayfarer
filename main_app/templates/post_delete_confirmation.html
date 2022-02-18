@@ -1,11 +1,14 @@
 {% extends 'base.html' %} 
+{% block pgtitle%}
+Delete Post
+{% endblock%}
 {% block content %}
 <h1>Are you SURE you want to delete {{post.title}}?</h1>
 <form method="post">
     {% csrf_token %}
     <div class="buttons">
-        <input class="button" type="submit" value="Yes! Delete!"/>
-        <a class="button is-primary" href="{% url 'city_detail' post.city.pk %}">No! Cancel</a>
+        <input class="btn btn-warning" type="submit" value="Yes! Delete!"/>
+        <a class="btn btn-danger" href="{% url 'city_detail' post.city.pk %}">No! Cancel</a>
     </div>
 </form>
 {% endblock %}
