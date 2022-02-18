@@ -21,6 +21,12 @@
     margin-top: 30px;
 }
 
+input {
+    border: solid rgb(0, 0, 0) 3px;
+    border-radius: 5px;
+    
+}
+
 .comment_body{
     width: 500px;
     height: 150px;
@@ -28,3 +34,11 @@
     margin-bottom: 10px;
 }
 
+.post_container {
+    border: solid rgb(8, 8, 8) 3px;
+    border-radius: 5px;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 12px;
+}
