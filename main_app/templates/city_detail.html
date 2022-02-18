@@ -53,8 +53,10 @@
         <span>{{post.body}}</span>
         <br />
         <div>
+            {% if user == post.user %}
             <a href="{% url 'post_update' post.pk %}" class="button"> Update Post
             <a href="{% url 'post_delete' post.pk %}" class="button"> Delete Post
+            {% endif %}
                 <p>==================</p>
                 <p>==================</p>
         </div>
