@@ -35,6 +35,7 @@ ul.nav-bar-items {
     border-bottom: solid;
     transition: 0.8s;
 }
+
 ul.nav-bar-items:hover {
     border-color: white;
     color:white
