@@ -32,7 +32,7 @@
                     </li>
                     <li class="nav-bar-item nav-auth">
                         {% if user.is_authenticated %}
-                            <span class="endbar">Welcome: {{user.username}}</span>
+                            <span class="endbar">welcome: {{user.username}}</span>
                             <a class="endbar" href="{% url 'logout' %}">Logout</a>
                             <a href="{% url 'user_profile' user.pk %}">Profile</a>
                         {% else %} 

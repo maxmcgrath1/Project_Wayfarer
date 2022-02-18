@@ -1,7 +1,10 @@
 img {
     margin-top: 0px;
     max-width: 100%;
-    /* height: auto; */
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center 90%;
+    margin-top: -16px;
 }
 
 .topic_header {
