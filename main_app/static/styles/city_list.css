@@ -173,13 +173,16 @@ div.city-list-post-container {
     padding-bottom: calc(var(--WU) *.4);
     margin-bottom: calc(var(--WU) *.1);
     border-bottom: solid;
+    transition: 0.6s;
+}
+div.city-list-post-container:hover {
+    border-bottom-color: #ffffff;
 }
 .city-list-post-username {
     color: #666666;
 }
 .city-list-post-content {
     margin-left: calc(var(--WU) *.3);
-    height: calc(var(--WU) * .2);  
 }
 .list-post-content {
     margin-top: calc(var(--WU) *-.1) ;

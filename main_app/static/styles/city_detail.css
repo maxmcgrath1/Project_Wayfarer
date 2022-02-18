@@ -7,17 +7,21 @@
 .container-city {
     display: flex;
     flex-flow: row wrap;
-    margin-left: calc(var(--VW) *0.15);
-    width: calc(var(--VW) * 1);
+    width: calc(var(--VW) * .95);
     margin-bottom: 10px;    
     border-bottom: solid;
+    background-color: #666666;
+    padding-top: calc(var(--WU) * .25);
+    margin-left: calc(var(--WU) * .52);
+    border: solid;
+    border-radius: 3%;
 }
 .city-info-container {
     display: flex;
     padding: calc(var(--WU) *.1);
     margin-right: calc(var(--WU) * .25);
     flex-flow: column wrap;
-    margin-left: calc(var(--WU) * -2.05);;
+    margin-left: calc(var(--WU) * .25);
     justify-content: start;
     max-width: calc(var(--WU) * 5);
     width: calc(var(--WU) * 3.8);
@@ -46,14 +50,14 @@
 .add-post-div {
     height: calc(var(--WU) * 1.8) ;
     width: calc(var(--WU) * 1.8);
-    margin-left: calc(var(--WU) * 2.1);
+    margin-left: calc(var(--WU) * 1.2);
     border: solid;
     border-width: calc(var(--WU) * .05);
     border-color: white;
     border-radius: 50%;
     box-shadow: 0 0 10px;
     transition: 0.3s;
-    transform: translate(calc(var(--WU) * -3.4), calc(var(--WU) * -3.8));
+    transform: translateY( calc(var(--WU) * -3.8));
     /* transform: translateX(calc(var(--WU) * -1.8)); */
 
 }
@@ -67,13 +71,18 @@
     border-radius: 50%;
 }
 div.city-list-detail {
-    margin-left: calc(var(--WU) * -3.4) ;
+    margin-left: calc(var(--WU) * -1.4) ;
     border-radius: 3%;
     margin-bottom: calc(var(--WU) *.3);
     padding-bottom: calc(var(--WU) *.3);
     margin-top: calc(var(--WU) *.2);
     width: calc(var(--WU) * 10);
     background:rgb(173, 89, 41);
+    border: solid;
+    transition: 0.6s;
+}
+div.city-list-detail:hover {
+    border-color: #ffffff;
 }
 h2.city-list-post-header {
     text-align: left;
@@ -89,6 +98,9 @@ div.city-list-post-container {
     padding-bottom: calc(var(--WU) *.4);
     margin-bottom: calc(var(--WU) *.1);
     border-bottom: solid;
+}
+div.city-list-post-container:hover {
+    border-bottom-color: #ffffff;
 }
 .city-list-post-username {
     color: #666666;
@@ -124,7 +136,7 @@ div.city-list-post-container {
     box-shadow: 0 0 10px pink;
  }
  .deletebutton {
-     color: black
+     color: black   
  }
  .deletebutton:hover {
      color: red;
@@ -150,5 +162,6 @@ div.control {
     background: #ffffff;
     outline: none;
 }
-.post-input {
+.post-body {
+    margin-bottom: calc(var(--WU) * .8);
 }

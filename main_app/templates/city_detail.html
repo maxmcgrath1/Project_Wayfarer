@@ -4,8 +4,6 @@
 <link rel="stylesheet" href="{% static 'styles/city_detail.css'%}" />
 {% endblock%}
 {% block content %}
-<a href="/">Home</a>
-<a href="/cities">Back to All Cities</a>
 <div value={{city.name}} class="container-city">
     <div class="city-info-container">
         <a class="city-link" href="{% url 'city_detail' city.pk %}"> 
@@ -29,11 +27,11 @@
             <h5 class="city-list-post-content city-list-post-username">@{{post.user}} </h5>
             <h2 class="city-list-post-content list-post-content"><b>{{post.title}}</b></h2>
             <br />
-            <p class="city-list-post-content list-post-content">{{post.body}}</p>
+            <p class="post-body city-list-post-content list-post-content">{{post.body}}</p>
             <br />
             <div>
                 <a href="{% url 'post_update' post.pk %}" class="button editlink city-list-post-content"> Update Post </a>
-                <a href="{% url 'post_delete' post.pk %}" class="button  city-list-post-content"> Delete Post </a>
+                <a href="{% url 'post_delete' post.pk %}" class="button deletebutton city-list-post-content"> Delete Post </a>
             </div>
         </div>
         {% empty %}

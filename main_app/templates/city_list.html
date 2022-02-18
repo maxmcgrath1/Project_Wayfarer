@@ -59,7 +59,7 @@ Cities
                         <br />
                         <p class="city-list-post-content list-post-content">{{post.body}}</p>
                         <br />
-                        <div>
+                        <div class="edit-delete-container">
                             <a href="{% url 'post_update' post.pk %}" class="button editlink city-list-post-content"> Update Post </a>
                             <a href="{% url 'post_delete' post.pk %}" class="button  city-list-post-content"> Delete Post </a>
                         </div>
