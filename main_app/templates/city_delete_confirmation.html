@@ -4,8 +4,8 @@
 <form method="post">
     {% csrf_token %}
     <div class="buttons">
-        <input class="button" type="submit" value="Confirm"/>
-        <a class="button is-primary" href="{% url 'city_detail' city.pk %}">Cancel</a>
+        <input class="btn btn-warning" type="submit" value="Yes, Delete!"/>
+        <a class="btn btn-danger" href="{% url 'city_detail' city.pk %}">No! Cancel!</a>
     </div>
 </form>
 {% endblock %}

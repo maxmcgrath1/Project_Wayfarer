@@ -15,12 +15,12 @@ Cities
                     </h5>
                     <div class="control">
                         <input class="input" type="text" name="name" placeholder="City" />
-                        <input class="button is-success" type="submit" value="Search" />
+                        <input class="btn btn-info" type="submit" value="Search" />
                     </div>
                 </div>
             </div>
             <br/>
-            <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
+            <a class="btn btn-default" href="{% url 'city_list' %}">Clear Search</a>
         </form>
         <h1 class="queryheader">
         Cities :
@@ -52,10 +52,10 @@ Cities
         </div> 
     </div>
 </div>
+<a class="btn btn-success" href="{% url 'city_create' %}">Add A City</a>
 
 {% endblock%}
 {% comment %} <a href="/">Home</a>
-<a href="{% url 'city_create' %}">Add A City</a>
 <h1>{{header}}</h1>
 
 <form class="mb-5" method="get">

@@ -3,7 +3,7 @@
 <h1 class="title">Sign Up</h1>
 <form method="post" action="{% url 'signup' %}">
     {% csrf_token %} {{ form.as_p }}
-    <input type="submit" class="btn" value="Sign Up" />
+    <input type="submit" class="btn btn-success" value="Sign Up" />
     <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
