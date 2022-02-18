@@ -45,11 +45,11 @@ Cities
                 <a class="city-link" href="{% url 'city_detail' city.pk %}">
                     <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
                 </a>
-                <div class="add-post-div">
+                {% comment %} <div class="add-post-div">
                     <a href="{% url 'comment_detail' city.pk %}" class="add-post-link"> </a>
                     <img class="add-post-image" src="https://i.imgur.com/skr6ozF.png" />
-                </div>
-            <div class="city-list-detail">
+                </div> {% endcomment %}
+            {% comment %} <div class="city-list-detail">
                 <h2 class="city-list-post-header"> Posts </h2> 
                 {% for post in city.posts.all %}
                     <div class="city-list-post-container">
@@ -69,7 +69,7 @@ Cities
                             <p class="city-list-post-content ">No Comments To Show</p>
                         </div>
                     {% endfor %}
-            </div>
+            </div> {% endcomment %}
         </div>
         {% endfor %}
         </div> 
