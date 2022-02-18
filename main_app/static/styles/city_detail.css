@@ -3,80 +3,12 @@
     --VW: 100vw;
     --WU: calc((var(--VW) * 0.05));
 }
-div.city-container {
-    display: flex;
-}
-div.city-list {
-    margin-left: calc(var(--VH) * 0.012);
-    padding: calc(var(--VH) * 0.015);
-    border-top: solid;
-    border-bottom: solid;
-    border-width: 2px;
-    border-right-width: 1px;
-    height: max-content;
-    overflow-y: scroll;
-    background-color: #4a4a4a;
-    min-width: max-content;
-    width: calc(var(--VH) * .48);
-    transition: 0.8s;
-}
-div.each-city {
-    margin-left: calc(var(--VH) * 0.012) ;
-    background: #386683;
-    border-top: solid;
-    border-bottom: solid;
-    border-width: 2px;
-    border-left-width: 1px;
-    transition: 0.8s;
-}
-div.each-city:hover, div.city-list:hover {
-    border-color: #ffffff;
-}
-.city-btns {
-    display: flex;
-    flex-flow: column wrap;
-}
-.city-btn {
-    --size: max-content;
-    width: var(--size) ;
-    min-width: max-content;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: calc(var(--WU) * 0.5) ;
-    margin: 0, auto;
-    margin-bottom: calc(var(--WU) * 0.25) ;
-    padding: 5px 50px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 5px rgb(0, 8, 85);
-    border-radius: 1em;
-    border: black;
-    border-style: solid;
-}
-.city-btn {background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-    }
-.city-btn:hover {
-    background-position: right center; 
-    color: black;
-    text-decoration: none;
-    border:pink;
-    border-style: solid;
-    cursor: pointer;
-    box-shadow: 0 0 10px pink;
- }
-.cities-container {
-    max-width: calc(var(--VW) * 0.67);
-    border: solid;
-    padding: 10px;
-}
+
 .container-city {
     display: flex;
     flex-flow: row wrap;
-    margin-left: calc(var(--VW) *0.1);
-    margin-right: calc(var(--VW) *0.1);
-    width: calc(var(--VW) * 0.575);
+    margin-left: calc(var(--VW) *0.15);
+    width: calc(var(--VW) * 1);
     margin-bottom: 10px;    
     border-bottom: solid;
 }
@@ -94,8 +26,8 @@ div.each-city:hover, div.city-list:hover {
     border-radius: 5%;
 }
 .city-image {
-    min-width: calc(var(--VW) * 0.45);
-    max-width: calc(var(--VW) * 0.45);
+    min-width: calc(var(--VW) * 0.69);
+    max-width: calc(var(--VW) * .5);
     border: solid;
     border-radius: 2%;
 }
@@ -111,36 +43,19 @@ div.each-city:hover, div.city-list:hover {
     
     /* transform: translate(calc(var(--VW) * -0.11),calc(var(--VW) * -0.21) ); */
 }
-div.control {
-    display: flex;
-    justify-content: space-evenly;
-    height: fit-content;
-}
-.queryheader {
-    text-align: start;
-    color: #ffffff;
-}
-.input {
-    cursor: pointer;
-    background: #aaaaaa;
-}
-.input:focus {
-    cursor:default;
-    box-shadow: 0 0 15px;
-    background: #ffffff;
-    outline: none;
-}
 .add-post-div {
     height: calc(var(--WU) * 1.8) ;
     width: calc(var(--WU) * 1.8);
+    margin-left: calc(var(--WU) * 2.1);
     border: solid;
     border-width: calc(var(--WU) * .05);
     border-color: white;
     border-radius: 50%;
-    margin-left: calc(var(--WU) * -1.4);
-    margin-right: calc(var(--WU) * .3);
     box-shadow: 0 0 10px;
     transition: 0.3s;
+    transform: translate(calc(var(--WU) * -3.4), calc(var(--WU) * -3.8));
+    /* transform: translateX(calc(var(--WU) * -1.8)); */
+
 }
 .add-post-div:hover {
     box-shadow: 0 0 15px;
@@ -152,10 +67,11 @@ div.control {
     border-radius: 50%;
 }
 div.city-list-detail {
-    margin-left: calc(var(--WU) *1) ;
+    margin-left: calc(var(--WU) * -3.4) ;
     border-radius: 3%;
     margin-bottom: calc(var(--WU) *.3);
-    margin-top: calc(var(--WU) *-.7);
+    padding-bottom: calc(var(--WU) *.3);
+    margin-top: calc(var(--WU) *.2);
     width: calc(var(--WU) * 10);
     background:rgb(173, 89, 41);
 }
@@ -197,7 +113,7 @@ div.city-list-post-container {
     border: black;
     border-style: solid;
 }
-.editlink {background-image: linear-gradient(to right, #FFAFBD 0%, #f18c51  51%, #FFAFBD  100%)}
+.editlink {background-image: linear-gradient(to right, #ffecaf 0%, #f3935c  51%, #fff0af  100%)}
 .editlink:hover {
     background-position: right center; 
     color: black;
@@ -219,3 +135,20 @@ div.city-list-post-container {
     width: calc(var(--WU) * 1.8);
     border-radius: 50%;
  }
+div.control {
+    display: flex;
+    margin-bottom: calc(var(--WU) * .08);
+    margin-left: calc(var(--WU) *.3);
+}
+.input {
+    cursor: pointer;
+    background: #aaaaaa;
+}
+.input:focus {
+    cursor:default;
+    box-shadow: 0 0 15px;
+    background: #ffffff;
+    outline: none;
+}
+.post-input {
+}

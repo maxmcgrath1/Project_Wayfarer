@@ -1,22 +1,52 @@
 {% extends 'base.html' %} 
+{% load static %}
+{% block pgstyles%}
+<link rel="stylesheet" href="{% static 'styles/city_detail.css'%}" />
+{% endblock%}
 {% block content %}
 <a href="/">Home</a>
 <a href="/cities">Back to All Cities</a>
-<div>
-    <img src="{{city.image}}" alt="{{city.name}}" />
-</div>
-    <h1>{{city.name}}</h1>
-</div>
-<div>
-    <p>Population: {{city.population}}</p>
-    <p>Main Attractions: {{city.attractions}}</p>
-</div>
-<form class="mb-5" action="{% url 'post_create' city.pk %}" method="post">
+<div value={{city.name}} class="container-city">
+    <div class="city-info-container">
+        <a class="city-link" href="{% url 'city_detail' city.pk %}"> 
+            <h2 class="city-name">{{city.name}}</h2> 
+        </a>
+        <p class="city-info">Population: {{city.population}}</h3>
+        <p class="city-info">Main Attractions: {{city.attractions}}</h3>
+    </div>
+    <a class="city-link" href="{% url 'city_detail' city.pk %}">
+        <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
+    </a>
+    <div class="add-post-div">
+        <a href="{% url 'comment_detail' city.pk %}" class="add-post-link"> </a>
+        <img class="add-post-image" src="https://i.imgur.com/skr6ozF.png" />
+    </div>
+<div class="city-list-detail">
+    <h2 class="city-list-post-header"> Posts </h2> 
+    {% for post in city.posts.all %}
+        <div class="city-list-post-container">
+            <img src="{{post.user.profile.image}}" /> 
+            <h5 class="city-list-post-content city-list-post-username">@{{post.user}} </h5>
+            <h2 class="city-list-post-content list-post-content"><b>{{post.title}}</b></h2>
+            <br />
+            <p class="city-list-post-content list-post-content">{{post.body}}</p>
+            <br />
+            <div>
+                <a href="{% url 'post_update' post.pk %}" class="button editlink city-list-post-content"> Update Post </a>
+                <a href="{% url 'post_delete' post.pk %}" class="button  city-list-post-content"> Delete Post </a>
+            </div>
+        </div>
+        {% empty %}
+            <div class="city-list-post-container">
+                <p class="city-list-post-content ">No Comments To Show</p>
+            </div>
+        {% endfor %}
+    <form class="mb-5" action="{% url 'post_create' city.pk %}" method="post">
     {% csrf_token %}
     <div class="field has-addons">
         <div class="control">
-            <input
-                class="input"
+            <input 
+                class="input post-input"
                 type="text"
                 name="title"
                 placeholder="Title"
@@ -24,46 +54,20 @@
             />
         </div>
         <div class="control">
-            <input
-                class="input"
+            <textarea
+                class="input post-input"
                 type="text"
                 name="body"
                 placeholder="Your comment here"
                 required
-            />
+            >
+        </textarea>
         </div>
         <div class="control">
             <input class="button is-primary" type="submit" value="Add Comment" />
         </div>
     </div>
 </form>
-<div>
-    <h3>Comments</h3>
-    <div>
-        {% for post in city.posts.all %}
-        <img src="{{post.user.profile.image}}" /> 
-        <h2>{{post.user}} posted:</h2>
-        <span><b>{{post.title}}</b></span>
-        <br />
-        <span>{{post.body}}</span>
-        <br />
-        <div>
-            <a href="{% url 'post_update' post.pk %}" class="button"> Update Post
-            <a href="{% url 'post_delete' post.pk %}" class="button"> Delete Post
-                <p>==================</p>
-                <p>==================</p>
-        </div>
-    </div>
-		{% empty %}
-    <div>
-        <p>No Comments To Show</p>
-    </div>
-    {% endfor %}
 </div>
-<div>
-    <br />
-    <a href="{% url 'city_update' city.pk %}" class="button"> Update City
-    <a href="{% url 'city_delete' city.pk %}" class="button"> Delete City
 </div>
-
 {% endblock %}

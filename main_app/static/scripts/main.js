@@ -1,5 +1,6 @@
-const cityBtns = $('.b1')
+const cityBtns = $('.city-btn')
 const eachCity = $('.container-city')
+const allBtns = $('.city-btns')
 console.log(cityBtns.length)
 function cityBtnClicker(compare) {
     console.log('working')

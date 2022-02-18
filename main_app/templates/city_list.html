@@ -45,8 +45,33 @@ Cities
                 <a class="city-link" href="{% url 'city_detail' city.pk %}">
                     <img class="city-image" src="{{city.image}}" alt="{{city.name}}" />
                 </a>
+                <div class="add-post-div">
+                    <a href="{% url 'comment_detail' city.pk %}" class="add-post-link"> </a>
+                    <img class="add-post-image" src="https://i.imgur.com/skr6ozF.png" />
+                </div>
+            <div class="city-list-detail">
+                <h2 class="city-list-post-header"> Posts </h2> 
+                {% for post in city.posts.all %}
+                    <div class="city-list-post-container">
+                        <img src="{{post.user.profile.image}}" /> 
+                        <h5 class="city-list-post-content city-list-post-username">@{{post.user}} </h5>
+                        <h2 class="city-list-post-content list-post-content"><b>{{post.title}}</b></h2>
+                        <br />
+                        <p class="city-list-post-content list-post-content">{{post.body}}</p>
+                        <br />
+                        <div>
+                            <a href="{% url 'post_update' post.pk %}" class="button editlink city-list-post-content"> Update Post </a>
+                            <a href="{% url 'post_delete' post.pk %}" class="button  city-list-post-content"> Delete Post </a>
+                        </div>
+                    </div>
+                    {% empty %}
+                        <div class="city-list-post-container">
+                            <p class="city-list-post-content ">No Comments To Show</p>
+                        </div>
+                    {% endfor %}
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         </div> 
     </div>
 </div>
