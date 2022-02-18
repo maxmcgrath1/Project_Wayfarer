@@ -43,7 +43,11 @@ li.nav-bar-item {
     padding-right: 200px;
 }
 li.nav-auth {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     margin-left: calc(var(--WU) * 6.13);
+
 }
 li.nav-bar-logo {
     justify-self: left;
@@ -65,7 +69,7 @@ p.midbar {
    font-size: large;
 }
 a.endbar {
-    transform: translateY(calc(.22 * var(--WU)));
+    /* transform: translateY(calc(.22 * var(--WU))); */
 }
 div.auth-container {
     transform: translateY(10px);
