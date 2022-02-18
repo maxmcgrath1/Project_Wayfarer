@@ -93,6 +93,7 @@ div.city-list-detail {
 }
 div.city-list-detail:hover {
     border-color: #979494;
+    cursor: pointer;
 }
 h2.city-list-post-header {
     text-align: left;
