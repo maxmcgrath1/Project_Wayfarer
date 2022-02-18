@@ -93,6 +93,9 @@ div.each-city:hover, div.city-list:hover {
     border: solid;
     border-radius: 5%;
 }
+.city-info-container:hover {
+    border-color: #ffffff;
+}
 .city-image {
     min-width: calc(var(--VW) * 0.45);
     max-width: calc(var(--VW) * 0.45);
@@ -139,6 +142,7 @@ div.control {
     border-radius: 50%;
     margin-left: calc(var(--WU) * -1.4);
     margin-right: calc(var(--WU) * .3);
+    margin-top: calc(var(--WU) * -1.35);
     box-shadow: 0 0 10px;
     transition: 0.3s;
 }
@@ -155,9 +159,13 @@ div.city-list-detail {
     margin-left: calc(var(--WU) *1) ;
     border-radius: 3%;
     margin-bottom: calc(var(--WU) *.3);
-    margin-top: calc(var(--WU) *-.7);
+    margin-top: calc(var(--WU) *-.3);
     width: calc(var(--WU) * 10);
     background:rgb(173, 89, 41);
+    border: solid;
+}
+div.city-list-detail:hover {
+    border-color: #ffffff;
 }
 h2.city-list-post-header {
     text-align: left;

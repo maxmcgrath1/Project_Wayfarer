@@ -20,12 +20,12 @@
                         <img class="nav-bar-icon" src="https://st2.depositphotos.com/3096625/9284/v/600/depositphotos_92842844-stock-illustration-monogram-letter-w-logo.jpg">
                     </li>
                     <li class="nav-bar-item navbar-selector1">
-                        <a href="/">
+                        <a class="nav-link" href="/">
                             <p class="midbar"> Home </p>
                         </a>
                     </li>
                     <li class="nav-bar-item navbar-selector2">
-                        <a href="/cities">
+                        <a class="nav-link" href="/cities">
                                 <p class="midbar">Cities</p>
                         </a>
                     </li>
@@ -33,12 +33,12 @@
                         {% if user.is_authenticated %}
                             <span class="endbar">Welcome: {{user.username}}</span>
                             <br />
-                            <a class="endbar" href="{% url 'logout' %}">Logout</a>
+                            <a class="endbar nav-link" href="{% url 'logout' %}">Logout</a>
                             <br />
                             <a href="{% url 'user_profile' user.pk %}">Profile</a>
                         {% else %} 
-                                <a class="endbar" href="{% url 'login' %}">Log In</a>
-                                <a class="endbar" href="{% url 'signup' %}">Sign Up</a>
+                                <a class="endbar nav-link" href="{% url 'login' %}">Log In</a>
+                                <a class="endbar nav-link" href="{% url 'signup' %}">Sign Up</a>
                             {% endif %}
                         </a>
                     </li>
