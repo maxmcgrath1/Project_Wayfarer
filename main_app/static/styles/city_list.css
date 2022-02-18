@@ -92,15 +92,21 @@ div.each-city:hover, div.city-list:hover {
     height: max-content;
     border: solid;
     border-radius: 5%;
+    transition: 0.6s;
 }
 .city-info-container:hover {
     border-color: #ffffff;
+    box-shadow: 0 0 10px black;
 }
 .city-image {
     min-width: calc(var(--VW) * 0.45);
     max-width: calc(var(--VW) * 0.45);
     border: solid;
     border-radius: 2%;
+    transition: 0.6s;
+}
+.city-image:hover {
+    box-shadow: 0 0 10px black;
 }
 .city-info, .city-name {
     width: calc(var(--WU) * 3.7) ;
@@ -163,9 +169,10 @@ div.city-list-detail {
     width: calc(var(--WU) * 10);
     background:rgb(173, 89, 41);
     border: solid;
+    transition: 0.6s;
 }
 div.city-list-detail:hover {
-    border-color: #ffffff;
+    border-color: #979494;
 }
 h2.city-list-post-header {
     text-align: left;
@@ -184,7 +191,10 @@ div.city-list-post-container {
     transition: 0.6s;
 }
 div.city-list-post-container:hover {
+    border-top: solid;
+    border-top-color: #ffffff;
     border-bottom-color: #ffffff;
+    box-shadow: 0 0 10px;
 }
 .city-list-post-username {
     color: #666666;
