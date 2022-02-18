@@ -1,9 +1,12 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% block pgtitle%}
+Edit Profile
+{% endblock%} 
 {% block content %}
 <h2>Edit Profile for {{user.username}}</h2>
 
 <form action="" method="post">
-    {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit" />
+    {% csrf_token %} {{form.as_p}} <input class="btn btn-success" type="submit" value="Submit New Image" />
 </form>
 
 {% endblock %}
