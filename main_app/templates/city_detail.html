@@ -71,10 +71,10 @@
 <h3>If you would like to leave a comment, please <a href="{% url 'login' %}">Log In</a> first! Don't have an account? <a href="{% url 'signup' %}">Sign Up!</a> </h3>
 {% endif %}
 </div>
-</div>
 <div>
     <br />
     <a href="{% url 'city_update' city.pk %}" class="btn btn-info"> Update City</a>
     <a href="{% url 'city_delete' city.pk %}" class="btn btn-danger"> Delete City</a>
+</div>
 </div>
 {% endblock %}
