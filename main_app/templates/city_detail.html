@@ -38,7 +38,7 @@
             />
         </div>
         <div class="control">
-            <input class="button is-primary" type="submit" value="Add Comment" />
+            <input class="btn btn-info" type="submit" value="Add Comment" />
         </div>
     </div>
 </form>
@@ -46,19 +46,25 @@
     <h3>Comments</h3>
     <div>
         {% for post in city.posts.all %}
-        <img src="{{post.user.profile.image}}" /> 
-        <h2>{{post.user}} posted:</h2>
-        <span><b>{{post.title}}</b></span>
-        <br />
-        <span>{{post.body}}</span>
-        <br />
+        <div class="post_container">
+            <img src="{{post.user.profile.image}}" /> 
+            <h2>{{post.user}} posted:</h2>
+            <span><b>Title: {{post.title}}</b></span>
+            <br />
+            <br />
+            <span>{{post.body}}</span>
+            <br />
+        </div>
         <div>
             {% if user == post.user %}
-            <a href="{% url 'post_update' post.pk %}" class="button"> Update Post
-            <a href="{% url 'post_delete' post.pk %}" class="button"> Delete Post
+            <a href="{% url 'post_update' post.pk %}">
+                <button type="button" class="btn btn-primary">Edit Post</button>
+            </a>
+            <a href="{% url 'post_delete' post.pk %}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
             {% endif %}
-                <p>==================</p>
-                <p>==================</p>
+        <p>====================================</p>
         </div>
     </div>
 		{% empty %}
