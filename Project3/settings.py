@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'project3-wayfarer.herokuapp.com'
+    'project3-wayfarer.herokuapp.com',
+    'project-wayfarer.onrender.com'
 ]
 
 
